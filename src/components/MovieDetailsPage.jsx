@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { finderInstance } from 'api/client';
 import { useParams, Outlet, Link, useNavigate } from 'react-router-dom';
 
-export const MovieDetailsPage = () => {
+const MovieDetailsPage = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [movieDetails, setMovieDetails] = useState([]);
@@ -58,17 +58,17 @@ export const MovieDetailsPage = () => {
         <p>{movieDetails.overview}</p>
         <h3>Genres</h3>
         {movieGenres.map(genre => (
-          <p id={genre.id}>{genre.name}</p>
+          <p key={genre.id}>{genre.name}</p>
         ))}
       </div>
       <hr></hr>
       <div>
         <h3>Additional information</h3>
         <ul>
-          <li>
+          <li key="cast">
             <Link to={`/movies/${movieId}/cast`}>Cast</Link>
           </li>
-          <li>
+          <li key="reviews">
             <Link to={`/movies/${movieId}/reviews`}>Reviews</Link>
           </li>
         </ul>
@@ -77,3 +77,5 @@ export const MovieDetailsPage = () => {
     </>
   );
 };
+
+export default MovieDetailsPage;

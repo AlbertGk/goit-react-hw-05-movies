@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { finderInstance } from 'api/client';
 import { useParams } from 'react-router-dom';
 
-export const Reviews = () => {
+const Reviews = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [reviewsDetails, setReviewsDetails] = useState([]);
@@ -40,3 +40,6 @@ export const Reviews = () => {
     </ul>) : (<p>Nothing to show</p>)
   );
 };
+
+
+export default Reviews;

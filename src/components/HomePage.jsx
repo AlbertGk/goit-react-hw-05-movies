@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { finderInstance } from 'api/client';
 import { Link } from 'react-router-dom';
 
-export const HomePage = () => {
+const HomePage = () => {
 
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
@@ -42,3 +42,5 @@ export const HomePage = () => {
       </>
     );
 }
+
+export default HomePage;
