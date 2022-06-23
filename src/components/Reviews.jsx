@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { finderInstance } from 'api/client';
 import { useParams } from 'react-router-dom';
+import { Loader } from 'components/Loader';
 
 const Reviews = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -29,16 +30,20 @@ const Reviews = () => {
   }, []);
 
   return (
-    reviewsDetails.length>0 ?
-    (<ul>
-      {reviewsDetails.map(reviewsDetail => (
-        <li className={''} key={reviewsDetail.id}>
-          <h4>Author: {reviewsDetail.author}</h4>
-          <p>{reviewsDetail.content}</p>
-        </li>
-      ))}
-    </ul>) : (<p>Nothing to show</p>)
-  );
+    <>
+      {reviewsDetails.length > 0 ?
+        (<ul>
+          {reviewsDetails.map(reviewsDetail => (
+            <li className={''} key={reviewsDetail.id}>
+              <h4>Author: {reviewsDetail.author}</h4>
+              <p>{reviewsDetail.content}</p>
+            </li>
+          ))}
+        </ul>) : (<p>Nothing to show</p>)}
+ 
+  {/* {isLoading && <Loader type="spokes" color="#3f72b5" />} */}
+    </>
+ );
 };
 
 

@@ -1,10 +1,8 @@
 import { React, lazy, Suspense } from 'react';
 import { Route, Routes, Link } from 'react-router-dom';
-// import { HomePage } from 'components/HomePage';
-// import { MovieDetailsPage } from 'components/MovieDetailsPage';
-// import { MoviesPage } from 'components/MoviesPage';
-// import { Cast } from 'components/Cast';
-// import { Reviews } from 'components/Reviews';
+import { Loader } from 'components/Loader';
+import styles from '../styles/Nav.module.css';
+
 
 const HomePage = lazy(() => import('components/HomePage'));
 const MovieDetailsPage = lazy(() => import('components/MovieDetailsPage'));
@@ -15,10 +13,14 @@ const Reviews = lazy(() => import('components/Reviews'));
 export const App = () => {
   return (
     <>
-      <Suspense fallback={<div>Loading...</div>}>
-        <nav>
-          <Link to="/">Home</Link>
-          <Link to="/movies">Movies</Link>
+      <Suspense fallback={<Loader type="spokes" color="#3f72b5" />}>
+        <nav className={styles.Nav}>
+          <Link to="/" className={styles.Nav_text}>
+            Home
+          </Link>
+          <Link to="/movies" className={styles.Nav_text}>
+            Movies
+          </Link>
         </nav>
         <Routes>
           <Route path="/" element={<HomePage />} />

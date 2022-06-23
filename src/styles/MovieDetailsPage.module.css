@@ -1,0 +1,27 @@
+.MovieDetailsPage_btn{
+  display:block;
+  padding: 6px;
+  margin-top: 8px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+.MovieDetailsPage_btn:hover {
+  background: #ccc;
+}
+
+.MovieDetailsPage_poster{
+border-radius: 8px;
+}
+
+.Cast_list{
+    text-decoration: none;
+    color: #353130;
+}
+
+.Cast_list:hover{
+font-weight: bold;
+cursor: pointer;
+}

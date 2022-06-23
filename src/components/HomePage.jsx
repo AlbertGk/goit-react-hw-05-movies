@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { finderInstance } from 'api/client';
 import { Link } from 'react-router-dom';
+import { Loader } from 'components/Loader';
+import styles from '../styles/HomePage.module.css';
 
 const HomePage = () => {
 
@@ -34,11 +36,14 @@ const HomePage = () => {
         <h1>Trending Today</h1>
         <ul>
           {trending.map(trend => (
-            <li className={''} key={trend.id}>
-                  <Link to={`/movies/${trend.id}`}>{trend.original_title}</Link>
+            <li className={styles.HomePage} key={trend.id}>
+              <Link to={`/movies/${trend.id}`} className={styles.HomePage}>
+                {trend.original_title}
+              </Link>
             </li>
           ))}
         </ul>
+        {isLoading && <Loader type="spokes" color="#3f72b5" />}
       </>
     );
 }

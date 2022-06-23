@@ -1,0 +1,9 @@
+.HomePage{
+    text-decoration: none;
+    color: #353130;
+}
+
+.HomePage:hover{
+font-weight: bold;
+cursor: pointer;
+}

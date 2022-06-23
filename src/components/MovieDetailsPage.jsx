@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { finderInstance } from 'api/client';
 import { useParams, Outlet, Link, useNavigate } from 'react-router-dom';
+import { Loader } from 'components/Loader';
+import styles from '../styles/MovieDetailsPage.module.css';
 
 const MovieDetailsPage = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -40,14 +42,20 @@ const MovieDetailsPage = () => {
 
   return (
     <>
-      <button type="button" onClick={() => navigate(-1)}>
+      <button
+        type="button"
+        onClick={() => navigate(-1)}
+        className={styles.MovieDetailsPage_btn}
+      >
         Go back
       </button>
+      {isLoading && <Loader type="spokes" color="#3f72b5" />}
       <img
         src={`
             https://image.tmdb.org/t/p/w300${movieDetails.poster_path}
         `}
         alt={movieDetails.original_title}
+        className={styles.MovieDetailsPage_poster}
       ></img>
       <div>
         <h1>
@@ -65,11 +73,18 @@ const MovieDetailsPage = () => {
       <div>
         <h3>Additional information</h3>
         <ul>
-          <li key="cast">
-            <Link to={`/movies/${movieId}/cast`}>Cast</Link>
+          <li key="cast" className={styles.Cast_list}>
+            <Link to={`/movies/${movieId}/cast`} className={styles.Cast_list}>
+              Cast
+            </Link>
           </li>
-          <li key="reviews">
-            <Link to={`/movies/${movieId}/reviews`}>Reviews</Link>
+          <li key="reviews" className={styles.Cast_list}>
+            <Link
+              to={`/movies/${movieId}/reviews`}
+              className={styles.Cast_list}
+            >
+              Reviews
+            </Link>
           </li>
         </ul>
         <Outlet />
