@@ -9,6 +9,7 @@ const MoviesPage = () => {
   const [lookingValue, setLookingValue] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  // eslint-disable-next-line
   const [error, setError] = useState(null);
 
   const handleChange = event => {

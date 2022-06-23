@@ -6,6 +6,7 @@ import styles from '../styles/MovieDetailsPage.module.css';
 
 const MovieDetailsPage = () => {
   const [isLoading, setIsLoading] = useState(false);
+  // eslint-disable-next-line
   const [error, setError] = useState(null);
   const [movieDetails, setMovieDetails] = useState([]);
   const [movieGenres, setMovieGenres] = useState([]);
