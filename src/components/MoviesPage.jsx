@@ -27,6 +27,7 @@ const MoviesPage = () => {
       );
       console.log(response);
       setSearchResults(response.data.results);
+      saveInLocalStorage('searchResults', response.data.results);
     } catch (error) {
       setError(error);
     } finally {
@@ -34,9 +35,9 @@ const MoviesPage = () => {
     }
   };
 
-  useEffect(() => {
-    saveInLocalStorage('searchResults', searchResults);
-  }, [searchResults]);
+  // useEffect(() => {
+  //   saveInLocalStorage('searchResults', searchResults);
+  // }, [searchResults]);
 
   useEffect(() => {
     const storageArray = loadFromLocalStorage('searchResults');
