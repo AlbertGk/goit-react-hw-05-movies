@@ -41,7 +41,7 @@ const MoviesPage = () => {
   useEffect(() => {
     const storageArray = loadFromLocalStorage('searchResults');
     if (storageArray) {
-      setSearchResults(searchResults);
+      setSearchResults(storageArray);
       console.log('aaa');
     }
     // eslint-disable-next-line
